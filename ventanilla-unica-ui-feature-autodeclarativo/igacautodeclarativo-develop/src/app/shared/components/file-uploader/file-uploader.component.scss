@@ -1,0 +1,34 @@
+.igac-file {
+  label {
+    border: 2px dashed #3366CC;
+    border-radius: 5px;
+    padding: 2rem;
+    margin: auto 0 0 auto;
+    width: 100%;
+    display: inline-flex;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &.invalid-file {
+    label {
+      border-color: #dc3545;
+    }
+
+    span {
+      color: #dc3545;
+    }
+  }
+
+  input {
+    display: none;
+  }
+
+  span {
+    color: #3366CC;
+  }
+
+  button {
+    float: right;
+  }
+}

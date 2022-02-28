@@ -1,0 +1,7 @@
+<div *ngIf="esListado; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+    <igac-autodeclarativolist (esListado)="onIniciarTramiteNuevo($event)"></igac-autodeclarativolist>
+</ng-template>
+<ng-template #elseBlock>
+    <igac-autodeclarativowizard></igac-autodeclarativowizard>
+</ng-template>

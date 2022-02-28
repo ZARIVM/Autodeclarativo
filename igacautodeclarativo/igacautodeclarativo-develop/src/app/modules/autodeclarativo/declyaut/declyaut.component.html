@@ -1,0 +1,74 @@
+<div class="container-fluid bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-9">
+                <igac-encabezado-seccion [title]="info.title" [description]="info.description">
+                </igac-encabezado-seccion>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9">
+                <div class="alert alert-light" role="alert">
+                    ¿Autorizo al Instituto Geográfico Agustín Codazzi el envío de comunicaciones y el tratamiento de mis datos personales suministrados, de acuerdo con lo establecido en la Ley 1581 de 2012?
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineSend1" value="true" [(ngModel)]="opAuth">
+                    <label class="form-check-label" for="inlineSend1">Sí</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineSend2" value="false" [(ngModel)]="opAuth" (click)="showAlertNoAuth()">
+                    <label class="form-check-label" for="inlineSend2">No</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9">
+                <div class="alert alert-light" role="alert">
+                    ¿Autoriza comunicación electrónica?
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineElecCom1" value="true" [(ngModel)]="opAuthComElec" [disabled]="opAuth !== 'true'">
+                    <label class="form-check-label" for="inlineElecCom1">Sí</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineElecCom2" value="false" [(ngModel)]="opAuthComElec" [disabled]="opAuth !== 'true'" >
+                    <label class="form-check-label" for="inlineElecCom2">No</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9">
+                <div class="alert alert-light" role="alert">
+                    ¿Autoriza notificación electrónica?
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineNot1" value="true" [(ngModel)]="opAuthNotElec" [disabled]="opAuth !== 'true'">
+                    <label class="form-check-label" for="inlineNot1">Sí</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineNot2" value="false" [(ngModel)]="opAuthNotElec" [disabled]="opAuth !== 'true'">
+                    <label class="form-check-label" for="inlineNot2">No</label>
+                </div>
+            </div>
+        </div>
+        <div class="row rox-fix">
+            <div class="container">
+                <div class="row justify-content-end">
+                    <div class="col-2">
+                        <button type="button" class="btn btn-secondary" (click)="backMenu()">Volver</button>
+                    </div>
+                    <div class="col-2">
+                        <button type="button" class="btn btn-primary" [disabled]="validFields"  (click)="nextPage()">Continuar</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

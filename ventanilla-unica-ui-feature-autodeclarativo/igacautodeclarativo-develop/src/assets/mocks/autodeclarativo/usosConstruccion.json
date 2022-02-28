@@ -1,0 +1,6 @@
+[
+    { "text": "Residencial", "value": "1" },
+    { "text": "Comercial", "value": "2" },
+    { "text": "Industrial", "value": "3" },
+    { "text": "Anexos", "value": "4" }
+]

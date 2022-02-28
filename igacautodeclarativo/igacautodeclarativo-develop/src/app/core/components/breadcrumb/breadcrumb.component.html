@@ -1,0 +1,12 @@
+<div class="container">
+  <ol class="breadcrumb bg-transparent p-2 m-0">
+    <li class="breadcrumb-item p-0 m-0" *ngFor="let crumb of breadCrumb;let i = index">
+      <a class="breadcrumb-text p-2 m-0" *ngIf="crumb.breadcrumblink" [routerLink]="[crumb.url]">{{crumb.name}}</a>
+      <span class="breadcrumb-text p-2 m-0" *ngIf="!crumb.breadcrumblink">{{crumb.name}}</span>
+      <div class="image-icon" *ngIf="i < breadCrumb.length - 1">
+        <span class="breadcrumb govco-icon govco-icon-shortr-arrow bg-transparent py-2 m-0"></span>
+      </div>
+    </li>
+  </ol>
+</div>
+

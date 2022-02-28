@@ -1,0 +1,227 @@
+<mat-dialog-content>
+    <div class="modal fade show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: block; padding-right:
+    17px" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" id="modalContentScroll">
+                <form [formGroup]="infoContacPre">
+                    <div class="modal-header matHeader">
+                        <h5 class="modal-title" id="exampleModalLabel" mat-dialog-title>Información de contacto</h5>
+                        <button mat-button [mat-dialog-close]="true" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row fixRow">
+                            <div class="col-12">
+                                <div class="row pd">
+                                    <div class="col-12">
+                                        <label class="igac-label" for="propietario">¿Propietario,
+                      poseedor u ocupante?</label>
+                                    </div>
+                                    <select id="propietario" class="form-control igac-input" type="text" formControlName="proPoseeOcu">
+                    <option
+                      *ngFor="let item of tipoLEgi"
+                      [selected]="data.contacto !== null &&
+                      item.text === data.contacto.proPoseeOcu"
+                      [value]="item.text">
+                      {{ item.text }}
+                    </option>
+                  </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row fixRow">
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="igac-label" for="gruEtni">Grupo étnico</label>
+                                    </div>
+                                    <div class="col-12">
+                                        <select id="gruEtni" class="form-control igac-input" type="text" formControlName="grupoEtnico">
+                      <option
+                        *ngFor="let item of listGroupEtni"
+                        [selected]="data.contacto !== null &&
+                        item.text === data.contacto.grupoEtnico"
+                        [value]="item.text">
+                        {{ item.text }}
+                      </option>
+                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="igac-label" for="sexo">Sexo</label>
+                                    </div>
+                                    <div class="col-12">
+                                        <select id="sexo" class="form-control igac-input" type="text" formControlName="sexo">
+                      <option
+                        *ngFor="let item of listSexo"
+                        [selected]="data.contacto !== null &&
+                        item.text === data.contacto.sexo" [value]="item.text">
+                        {{ item.text }}
+                      </option>
+                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row fixRow">
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="igac-label" for="tipoDocu">Tipo de documento</label>
+                                    </div>
+                                    <div class="col-12" *ngIf="data.accion === 'editar'">
+                                        <input id="tipoDocu" class="form-control igac-input" type="text" formControlName="tipoDoc" disabled />
+                                    </div>
+                                    <div class="col-12" *ngIf="data.accion !== 'editar'">
+                                        <select id="depa" class="form-control igac-input" type="text" formControlName="tipoDoc" (change)="onSelect($event)">
+                    <option
+                      *ngFor="let item of listTipoDocumentos"
+                      [value]="item.text">
+                      {{ item.text }}
+                    </option>
+                  </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="igac-label" for="numeroDo">Número de documento
+                    </label>
+                                    </div>
+                                    <div class="col-12" *ngIf="data.accion == 'editar'">
+                                        <input id="numeroDo" class="form-control igac-input" type="text" formControlName="numDoc" disabled required />
+                                    </div>
+                                    <div class="col-12" *ngIf="data.accion !== 'editar'">
+                                        <input id="numeroDo" class="form-control igac-input" type="text" formControlName="numDoc" required />
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row fixRow">
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="igac-label" for="nombreSocial">Nombre
+                      completo/Razón social
+                    </label>
+                                    </div>
+                                    <div class="col-12" *ngIf="data.accion === 'editar'">
+                                        <input id="nombreSocial" class="form-control igac-input" type="text" formControlName="nomRazonSocial" disabled />
+                                    </div>
+                                    <div class="col-12" *ngIf="data.accion !== 'editar'">
+                                        <input id="nombreSocial" class="form-control igac-input" type="text" formControlName="nomRazonSocial" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="igac-label" for="depa">Departamento </label>
+                                    </div>
+                                    <div class="col-12">
+                                        <select id="depa" class="form-control igac-input" type="text" formControlName="departamento" (change)="onSelect($event)">
+                      <option
+                        *ngFor="let item of listDepartamentos"
+                        [selected]="data.contacto !== null &&
+                        item.departamento === data.contacto.departamento"
+                        [value]="item.departamento">
+                        {{ item.departamento }}
+                      </option>
+                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row fixRow">
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="igac-label" for="municipio">Municipio </label>
+                                    </div>
+                                    <div class="col-12">
+                                        <select id="municipio" class="form-control igac-input" type="text" formControlName="municipio">
+                      <option
+                        *ngFor="let item of municipios"
+                        [selected]="data.contacto !== null &&
+                        item === data.contacto.municipio">
+                        {{ item }}
+                      </option>
+                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="igac-label" for="direc">Dirección de
+                      residencia</label>
+                                    </div>
+                                    <div class="col-12">
+                                        <input id="direc" class="form-control igac-input" type="text" formControlName="direccion" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row fixRow">
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="igac-label" for="vereda">Vereda</label>
+                                    </div>
+                                    <div class="col-12">
+                                        <input id="vereda" class="form-control igac-input" type="text" formControlName="vereda" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="igac-label" for="tel">Telefono</label>
+                                    </div>
+                                    <div class="col-12">
+                                        <input id="tel" class="form-control igac-input" type="text" formControlName="telefono" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row fixRow">
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="igac-label" for="celu">Celular</label>
+                                    </div>
+                                    <div class="col-12">
+                                        <input id="celu" class="form-control igac-input" type="text" formControlName="celular" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="igac-label" for="correo">Correo electrónico</label>
+                                    </div>
+                                    <div class="col-12">
+                                        <input id="correo" class="form-control igac-input" type="email" formControlName="correo" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <h6 style="color: red;"> {{mensajeError}}</h6>
+                    </div>
+                    <mat-dialog-actions class="modal-footer">
+                        <button mat-button class="btn btn-primary" (click)="guardar()">Guardar</button>
+                    </mat-dialog-actions>
+                </form>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>

@@ -1,0 +1,283 @@
+<div class="container-fluid bg-light">
+    <div class="container">
+        <form [formGroup]="selectionLeGSol">
+            <div class="row fixRow">
+                <div class="col-12">
+                    <igac-encabezado-seccion [title]="info.title" [description]="info.description">
+                    </igac-encabezado-seccion>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-12">
+                            <label class="igac-label" for="legSolId" style="color: #3366cc
+                                !important">Legitimidad del solicitante
+                                <sup class="igac-required">*</sup></label>
+                        </div>
+                        <div class="col-12">
+                            <select id="legSolId" class="form-control
+                                igac-input" formControlName="legiSoli" style="border-color: #3366cc">
+                                <option
+                                    *ngFor="let op of legSol; let i= index"
+                                    [value]="op.value">
+                                    {{ op.text }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-12">
+                            <label class="igac-label" for="grEtId" style="color:
+                                #3366cc
+                                !important">Grupo étnico <sup
+                                    class="igac-required">*</sup></label>
+                        </div>
+                        <div class="col-12">
+                            <select class="form-control igac-input" id="grEtId" formControlName="grupoEtni" style="border-color:
+                                #3366cc">
+                                <option *ngFor="let op of legGEt"
+                                    [value]="op.value">
+                                    {{ op.text }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-12">
+                            <label class="igac-label" for="sexId" style="color:
+                                #3366cc
+                                !important">Sexo <sup
+                                    class="igac-required">*</sup></label>
+                        </div>
+                        <div class="col-12">
+                            <select class="form-control igac-input" id="sexId" formControlName="sex" style="border-color:
+                                #3366cc">
+                                <option *ngFor="let op of legSex"
+                                    [value]="op.value">
+                                    {{ op.text }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-12">
+                <igac-encabezado-seccion title="Documentos soporte" description="">
+                </igac-encabezado-seccion>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <div class="form-group col-lg-8 mx-auto">
+                        <div class="igac-file my-3">
+                            <label for="idFile1">
+                                <input
+                                    #myInput
+                                    type="file"
+                                    id="idFile1"
+                                    accept="image/jpeg"
+                                    (change)="onFileChange($event)"
+                                    style="border-color: #3366cc"
+                                    (click)="onFileTouch()"
+                                    />
+                                <span class="material-icons ml-auto mr-1">attachment</span>
+                                <span class="mr-auto ml-1">
+                                    Examinar
+                                    <span class="text-danger
+                                        font-weight-bolder">
+                                        *</span>
+                                </span>
+                            </label>
+                        </div>
+
+                        <table class="form-group margin" *ngFor="let archivo of
+                            listArchivos">
+                            <tr>
+                                <td width="70%">
+                                    <div class="input-group">
+
+                                        <span id="file-check">
+                                            <i class="fas fa-check-circle"></i>
+                                        </span>
+                                        <p><b>Se cargo el archivo
+                                                {{archivo.name}}</b></p>
+                                    </div>
+                                </td>
+                                <td width="70%">
+                                    <div class="input-group">
+                                        <div class="file-delete" data-placement="top" title="Eliminar archivo">
+                                            <i class="fas fa-trash-alt px-3" (click)="eliminarArchivo(archivo.index)"></i>
+                                        </div>
+                                        <p><b>Eliminar archivo</b></p>
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <igac-encabezado-seccion title="Datos de contacto" description="">
+                </igac-encabezado-seccion>
+                <form [formGroup]="contactInformation">
+                    <div class="row fixRow">
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="igac-label" for="depa" style="color: #3366cc
+                                        !important">Departamento <sup
+                                            class="igac-required">*</sup></label>
+                                </div>
+                                <div class="col-12">
+                                    <select id="depa" class="form-control
+                                        igac-input" formControlName="departamento" style="border-color: #3366cc" [ngClass]="formSubmit &&
+                                        contactInformation.get('departamento').value
+                                        === '-1'
+                                        ? 'selectInvalid'
+                                        : ''" (change)="onSelect($event)">
+                                        <option
+                                            *ngFor="let dp of departments"
+                                            [selected]="dp.id ===
+                                            this.objAutodeclarativo.department.id"
+                                            [value]="dp.id">
+                                            {{ dp.departamento }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="igac-label" for="muni" style="color: #3366cc
+                                        !important">Municipio <sup
+                                            class="igac-required">*</sup></label>
+                                </div>
+                                <div class="col-12">
+                                    <select class="form-control igac-input" id="muni" formControlName="municipio" style="border-color: #3366cc" [ngClass]="formSubmit &&
+                                        contactInformation.get('municipio').value
+                                        ===
+                                        'Seleccione...'
+                                        ? 'selectInvalid'
+                                        : ''">
+                                        <option *ngFor="let muni of municips">
+                                            {{ muni }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="igac-label" for="direc" style="color: #3366cc
+                                        !important">Dirección<sup
+                                            class="igac-required">*</sup></label>
+                                </div>
+                                <div class="col-12">
+                                    <input class="form-control igac-input" id="direc" type="text" formControlName="direc" value="objAutodeclarativo.address" style="border-color: #3366cc" />
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="igac-label" for="vereda" style="color: #3366cc
+                                        !important; margin-top: 5px;">Vereda
+                                        <sup class="igac-required">*</sup></label>
+                                </div>
+                                <div class="col-12">
+                                    <input id="vereda" class="form-control
+                                        igac-input" type="text" formControlName="vereda" value="objAutodeclarativo.vereda" style="border-color: #3366cc" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="igac-label" for="tel" style="color: #3366cc
+                                        !important; margin-top: 5px;">Teléfono</label>
+                                </div>
+                                <div class="col-12">
+                                    <input class="form-control igac-input" id="tel" type="text" formControlName="tel" value="objAutodeclarativo.phone" style="border-color: #3366cc" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="igac-label" for="celu" style="color: #3366cc
+                                        !important; margin-top: 5px;">Celular</label>
+                                </div>
+                                <div class="col-12">
+                                    <input class="form-control igac-input" id="celu" type="text" formControlName="cel" value="objAutodeclarativo.mobile" style="border-color: #3366cc" />
+                                </div>
+                            </div>
+                        </div>
+                        <br /><br />
+
+                        <ng-container *ngIf="objAutodeclarativo.opAuthComElec ||
+                            objAutodeclarativo.opAuthNotElec;
+                            else elseTemplate">
+                            <div class="col-4">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="igac-label" for="correo" style="color: #3366cc
+                                            !important; margin-top: 5px;">Correo
+                                            Electrónico
+                                            <sup class="igac-required">*</sup></label>
+                                    </div>
+                                    <div class="col-12">
+                                        <input class="form-control igac-input" id="correo" type="email" formControlName="email" value="objAutodeclarativo.email" style="border-color:
+                                            #3366cc" />
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                        <ng-template #elseTemplate>
+                            <div class="col-4">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="igac-label" for="correo" style="color: #3366cc
+                                            !important">Correo Electrónico</label>
+                                    </div>
+                                    <div class="col-12">
+                                        <input class="form-control igac-input" id="correo" type="email" formControlName="email" value="objAutodeclarativo.email" style="border-color:
+                                            #3366cc" />
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row rox-fix">
+            <div class="container">
+                <div class="row justify-content-end">
+                    <div class="col-2">
+                        <button type="button" class="btn btn-secondary" (click)="lastPage(1)">
+                            Volver
+                        </button>
+                    </div>
+                    <div class="col-2">
+                        <button type="button" class="btn btn-primary" (click)="nextPage(3)">
+                            Guardar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

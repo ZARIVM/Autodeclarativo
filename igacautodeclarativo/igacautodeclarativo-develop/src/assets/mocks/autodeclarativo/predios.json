@@ -1,0 +1,193 @@
+[{
+        "idPredio": 1,
+        "folio": "str2986",
+        "numeroPredial": "00987",
+        "codigoNupre": "1",
+        "departamento": "Bogota",
+        "municipio": "Bogota",
+        "image": "assets/images/tcubes.png",
+        "direcciones": [
+            "Carrera 7 # 84- 72",
+            "Av. Ciudad de Cali No. 6C-09",
+            "Avenida Cra. 60 No. 57-60",
+            "Calle 11 No. 4-21 / 93",
+            "Av. Calle 19 N° 2-49 Centro",
+            "Calle 109a N° 17-10 Sede Norte",
+            "Carrera 1 Este No. 17 01",
+            "Carrera 13 # 26- 81"
+        ]
+    },
+    {
+        "idPredio": 2,
+        "folio": "pok9886",
+        "numeroPredial": "14563",
+        "codigoNupre": "2",
+        "departamento": "Antioquia",
+        "municipio": "Medellin",
+        "image": "assets/images/aws.png",
+        "direcciones": ["Carrera 56A No. 51 - 81", "direccion2", "direccion3"]
+    },
+    {
+        "idPredio": 3,
+        "folio": "mlu4586",
+        "numeroPredial": "127800",
+        "codigoNupre": "3",
+        "departamento": "Amazonas",
+        "municipio": "leticia",
+        "image": "assets/images/db.png",
+        "direcciones": ["Calle 10 No. 9 - 78  Centro"]
+    },
+    {
+        "idPredio": 4,
+        "folio": "lll4yr7",
+        "numeroPredial": "0090",
+        "codigoNupre": "4",
+        "departamento": "Bolivar",
+        "municipio": "Cartagena",
+        "image": "assets/images/db.png",
+        "direcciones": [
+            "Carrera 10A No. 20 - 40  Edificio El Clarín piso 3 Centro La Matuna"
+        ]
+    },
+    {
+        "idPredio": 5,
+        "folio": "tttkio8",
+        "numeroPredial": "89fuu",
+        "codigoNupre": "5",
+        "departamento": "Caldas",
+        "municipio": "Manizales",
+        "image": "assets/images/db.png",
+        "direcciones": [
+            "Calle 20 No. 22 - 27 piso 3 Edificio Cumanday",
+            "Calle 87 No 39-43"
+        ]
+    },
+    {
+        "idPredio": 6,
+        "folio": "34343",
+        "numeroPredial": "cod7",
+        "codigoNupre": "6",
+        "departamento": "Valledupar",
+        "municipio": "assets/images/db.png",
+        "image": "",
+        "direcciones": ["Calle 15 No. 9 - 56 centro"]
+    },
+
+
+
+
+    {
+        "idPredio": 7,
+        "folio": "str2986",
+        "numeroPredial": "00987",
+        "codigoNupre": "7",
+        "departamento": "Bogota",
+        "municipio": "Bogota",
+        "image": "assets/images/tcubes.png",
+        "direcciones": [
+            "Carrera 7 # 84- 72",
+            "Av. Ciudad de Cali No. 6C-09",
+            "Avenida Cra. 60 No. 57-60",
+            "Calle 11 No. 4-21 / 93",
+            "Av. Calle 19 N° 2-49 Centro",
+            "Calle 109a N° 17-10 Sede Norte",
+            "Carrera 1 Este No. 17 01",
+            "Carrera 13 # 26- 81"
+        ]
+    },
+    {
+        "idPredio": 8,
+        "folio": "pok9886",
+        "numeroPredial": "14563",
+        "codigoNupre": "8",
+        "departamento": "Antioquia",
+        "municipio": "Medellin",
+        "image": "assets/images/aws.png",
+        "direcciones": ["Carrera 56A No. 51 - 81", "direccion2", "direccion3"]
+    },
+    {
+        "idPredio": 9,
+        "folio": "mlu4586",
+        "numeroPredial": "127800",
+        "codigoNupre": "9",
+        "departamento": "Amazonas",
+        "municipio": "leticia",
+        "image": "assets/images/db.png",
+        "direcciones": ["Calle 10 No. 9 - 78  Centro"]
+    },
+    {
+        "idPredio": 10,
+        "folio": "lll4yr7",
+        "numeroPredial": "0090",
+        "codigoNupre": "10",
+        "departamento": "Bolivar",
+        "municipio": "Cartagena",
+        "image": "assets/images/db.png",
+        "direcciones": [
+            "Carrera 10A No. 20 - 40  Edificio El Clarín piso 3 Centro La Matuna"
+        ]
+    },
+    {
+        "idPredio": 11,
+        "folio": "tttkio8",
+        "numeroPredial": "89fuu",
+        "codigoNupre": "11",
+        "departamento": "Caldas",
+        "municipio": "Manizales",
+        "image": "assets/images/db.png",
+        "direcciones": [
+            "Calle 20 No. 22 - 27 piso 3 Edificio Cumanday",
+            "Calle 87 No 39-43"
+        ]
+    },
+    {
+        "idPredio": 12,
+        "folio": "34343",
+        "numeroPredial": "cod7",
+        "codigoNupre": "12",
+        "departamento": "Valledupar",
+        "municipio": "assets/images/db.png",
+        "image": "",
+        "direcciones": ["Calle 15 No. 9 - 56 centro"]
+    },
+
+    {
+        "idPredio": 13,
+        "folio": "str2986",
+        "numeroPredial": "00987",
+        "codigoNupre": "13",
+        "departamento": "Bogota",
+        "municipio": "Bogota",
+        "image": "assets/images/tcubes.png",
+        "direcciones": [
+            "Carrera 7 # 84- 72",
+            "Av. Ciudad de Cali No. 6C-09",
+            "Avenida Cra. 60 No. 57-60",
+            "Calle 11 No. 4-21 / 93",
+            "Av. Calle 19 N° 2-49 Centro",
+            "Calle 109a N° 17-10 Sede Norte",
+            "Carrera 1 Este No. 17 01",
+            "Carrera 13 # 26- 81"
+        ]
+    },
+    {
+        "idPredio": 14,
+        "folio": "pok9886",
+        "numeroPredial": "14563",
+        "codigoNupre": "14",
+        "departamento": "Antioquia",
+        "municipio": "Medellin",
+        "image": "assets/images/aws.png",
+        "direcciones": ["Carrera 56A No. 51 - 81", "direccion2", "direccion3"]
+    },
+    {
+        "idPredio": 15,
+        "folio": "mlu4586",
+        "numeroPredial": "127800",
+        "codigoNupre": "15",
+        "departamento": "Amazonas",
+        "municipio": "leticia",
+        "image": "assets/images/db.png",
+        "direcciones": ["Calle 10 No. 9 - 78  Centro"]
+    }
+]

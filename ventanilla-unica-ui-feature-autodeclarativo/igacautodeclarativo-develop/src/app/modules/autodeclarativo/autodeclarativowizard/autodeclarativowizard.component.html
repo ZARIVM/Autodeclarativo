@@ -1,0 +1,63 @@
+<div class="container-fluid bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <igac-encabezado-seccion [title]="info.title" [description]="info.description">
+                </igac-encabezado-seccion>
+            </div>
+            <nav class="navbar navbar-expand p-0 m-0 fixNav">
+                <ul class="navbar-nav">
+                    <li class="{{wizstep === 1 ?'nav-item active' : 'nav-item'}}">
+                        <a class="nav-link p-2 font-weight-bold fixAncore" (click)="nextPageLink(1)">Declaraciones y autorizaciones</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="{{wizstep === 2 ?'nav-item active' : 'nav-item'}}">
+                        <a class="nav-link p-2 font-weight-bold" (click)="nextPageLink(2)">Legitimidad del solicitante</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="{{wizstep === 3 ?'nav-item active' : 'nav-item'}}">
+                        <a class="nav-link p-2 font-weight-bold" (click)="nextPageLink(3)">Consultar predios</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="{{wizstep === 4 ?'nav-item active' : 'nav-item'}}">
+                        <a class="nav-link p-2 font-weight-bold" (click)="nextPageLink(4)">Información de contacto de propietario poseedor u ocupante</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="{{wizstep === 5 ?'nav-item active' : 'nav-item'}}">
+                        <a class="nav-link p-2 font-weight-bold" (click)="nextPageLink(5)">Información física del predio</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="{{wizstep === 6 ?'nav-item active' : 'nav-item'}}">
+                        <a class="nav-link p-2 font-weight-bold" (click)="nextPageLink(6)">Uso de construcciones y destino</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="{{wizstep === 7 ?'nav-item active' : 'nav-item'}}">
+                        <a class="nav-link p-2 font-weight-bold" (click)="nextPageLink(7)">Ubicación geográfica</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="{{wizstep === 8 ?'nav-item active' : 'nav-item'}}">
+                        <a class="nav-link p-2 font-weight-bold" (click)="nextPageLink(8)">Adjuntar documentación</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="row fixRow">
+            <igac-declyaut (page)="nextPage($event)" [objAutodeclarativo]="objAutodeclarativo" *ngIf="wizstep===1"></igac-declyaut>
+            <igac-autodeclarativoleg (page)="nextPage($event)" [objAutodeclarativo]="objAutodeclarativo" *ngIf="wizstep===2"></igac-autodeclarativoleg>
+            <igac-autodeclarativopredio (page)="nextPage($event)" [objAutodeclarativo]="objAutodeclarativo" *ngIf="wizstep===3"></igac-autodeclarativopredio>
+            <igac-autodeclarativo-info-contac (page)="nextPage($event)" [objAutodeclarativo]="objAutodeclarativo" *ngIf="wizstep===4"></igac-autodeclarativo-info-contac>
+            <igac-infofiyeco (page)="nextPage($event)" [objAutodeclarativo]="objAutodeclarativo" *ngIf="wizstep===5"></igac-infofiyeco>
+            <igac-autodeclarativo-uso-cons (page)="nextPage($event)" [objAutodeclarativo]="objAutodeclarativo" *ngIf="wizstep===6"></igac-autodeclarativo-uso-cons>
+            <igac-ubicacion-geografica (page)="nextPage($event)" [objAutodeclarativo]="objAutodeclarativo" *ngIf="wizstep===7"></igac-ubicacion-geografica>
+            <igac-adjuntar-documentacion (page)="nextPage($event)" [objAutodeclarativo]="objAutodeclarativo" *ngIf="wizstep===8"></igac-adjuntar-documentacion>
+
+
+        </div>
+    </div>

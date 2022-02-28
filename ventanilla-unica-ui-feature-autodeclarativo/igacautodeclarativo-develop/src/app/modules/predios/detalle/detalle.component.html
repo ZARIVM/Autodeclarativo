@@ -1,0 +1,83 @@
+<div class="container p-0 my-4">
+  <div class="row">
+    <div class="col-9">
+      <igac-encabezado-seccion [title]="info.title"
+                               [description]="info.description">
+      </igac-encabezado-seccion>
+    </div>
+  </div>
+
+  <div class="row w-100 pb-4">
+    <div class="div-map col-12">
+      <igac-geoviewer [numeroPredial]="predial"></igac-geoviewer>
+    </div>
+  </div>
+
+  <div class="table-simple-headblue-govco" *ngIf="existPredio && existPropietarios">
+    <h3 class="headline-m-govco">Propietarios</h3>
+    <table class="w-100 table display table-responsive-sm table-responsive-md">
+      <thead>
+      <tr>
+        <th>Nombres</th>
+        <th>Tipo de Documento</th>
+        <th>Número de Documento</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let propietario of predio.propietarios">
+        <td style="width: 50%">{{propietario.nombre}}</td>
+        <td style="width: 10%">{{propietario.tipoDoc}}</td>
+        <td style="width: 20%">{{propietario.numDoc}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-simple-headblue-govco" *ngIf="existPredio && existConstrucciones">
+    <h3 class="headline-m-govco">Construcciones</h3>
+    <table class="w-100 table display table-responsive-sm table-responsive-md">
+      <thead>
+      <tr>
+        <th>Área</th>
+        <th>Número de Baños</th>
+        <th>Número de Habitaciones</th>
+        <th>Número de Locales</th>
+        <th>Número de Pisos</th>
+        <th>Puntaje</th>
+        <th>Uso</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let construccion of predio.construcciones">
+        <td style="width: 15%">{{construccion.area}}</td>
+        <td style="width: 15%">{{construccion.numBanos}}</td>
+        <td style="width: 15%">{{construccion.numHabitaciones}}</td>
+        <td style="width: 15%">{{construccion.numLocales}}</td>
+        <td style="width: 15%">{{construccion.numPisos}}</td>
+        <td style="width: 15%">{{construccion.puntaje}}</td>
+        <td style="width: 10%">{{construccion.uso}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-simple-headblue-govco" *ngIf="existPredio && existTerrenos">
+    <h3 class="headline-m-govco">Terrenos</h3>
+    <table class="w-100 table display table-responsive-sm table-responsive-md">
+      <thead>
+      <tr>
+        <th>Área</th>
+        <th>Zona Física</th>
+        <th>Zona Geo-Económica</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let terreno of predio.terrenos">
+        <td style="width: 20%">{{terreno.area}}</td>
+        <td style="width: 40%">{{terreno.zonaFisica}}</td>
+        <td style="width: 40%">{{terreno.zonaGeoEconomica}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

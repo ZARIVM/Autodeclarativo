@@ -1,0 +1,51 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "es2020",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "@app/*": [
+        "./src/app/*"
+      ],
+      "@core/*": [
+        "./src/app/core/*"
+      ],
+      "@shared/*": [
+        "./src/app/shared/*"
+      ],
+      "@helpers/*": [
+        "./src/app/helpers/*"
+      ],
+      "@inicio/*": [
+        "./src/app/modules/inicio/*"
+      ],
+      "@servicios/*": [
+        "./src/app/modules/servicios/*"
+      ],
+      "@tramites/*": [
+        "./src/app/modules/tramites/*"
+      ],
+      "@predios/*": [
+        "./src/app/modules/predios/*"
+      ],
+      "@autodeclarativo/*": [
+        "./src/app/modules/autodeclarativo/*"
+      ]
+    }
+  }
+}

@@ -1,0 +1,52 @@
+.fixRow {
+    margin-bottom: 30px !important;
+}
+
+.igac-file {
+    label {
+        border: 2px dashed #3366CC;
+        border-radius: 5px;
+        padding: 2rem;
+        margin: auto 0 0 auto;
+        width: 100%;
+        display: inline-flex;
+        text-align: center;
+        cursor: pointer;
+    }
+    &.invalid-file {
+        label {
+            border-color: #dc3545;
+        }
+        span {
+            color: #dc3545;
+        }
+    }
+    input {
+        display: none;
+    }
+    span {
+        color: #3366CC;
+    }
+    button {
+        float: right;
+    }
+}
+
+.selectInvalid {
+    border-color: #dc3545 !important;
+    padding-right: calc(1.5em + .75rem);
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+.fa-check-circle {
+    font-size: 1.2rem;
+    color: #0ba20b;
+    margin: 2px 4px;
+}
+
+.fa-trash-alt {
+    font-size: 1.2rem;
+    color: #dc3545;
+    cursor: pointer;
+    padding-right: 5px !important;
+}

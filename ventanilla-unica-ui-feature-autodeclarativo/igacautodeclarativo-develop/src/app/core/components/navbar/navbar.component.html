@@ -1,0 +1,25 @@
+<div class="container-fluid bg-light">
+  <div class="container">
+    <nav class="navbar navbar-expand p-0 m-0">
+      <ul class="navbar-nav w-100">
+        <li class="nav-item" routerLinkActive="active" *ngFor="let item of menu">
+          <a [routerLink]="[item.url]" class="nav-link p-2 font-weight-bold">{{item.label}}</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="dropdown">
+          <a class="nav-link py-0 px-3 dropdown-toggle align-middle"
+             data-toggle="dropdown" role="button" aria-expanded="false">
+            <span class="govco-icon govco-icon-user-p align-middle px-2"></span>
+            {{username}}
+          </a>
+          <ul class="dropdown-menu w-100" role="menu">
+            <li class="nav-item">
+              <a class="nav-link p-2 m-0 font-weight-bold" (click)="onLogout()">Cerrar Sesión</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

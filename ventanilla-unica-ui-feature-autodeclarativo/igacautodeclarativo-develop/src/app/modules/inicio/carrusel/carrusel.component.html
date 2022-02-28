@@ -1,0 +1,44 @@
+<div class="container-fluid p-0">
+  <div class="row">
+    <div class="col-12">
+      <div id="carouselNoticias" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <ng-container *ngFor="let noticia of noticias; let indexNoticia=index;">
+            <li data-target="#carouselNoticias" attr.data-slide-to={{indexNoticia}}
+                [ngClass]="{'active':indexNoticia===0}"></li>
+          </ng-container>
+        </ol>
+        <div class="carousel-inner">
+          <ng-container *ngFor="let noticia of noticias; let indexNoticia=index;">
+            <div class="carousel-item" [ngClass]="{'active':indexNoticia===0}" [style.background]="noticia.fondo">
+              <div class="item-noticia">
+                <div class="row p-0 m-0">
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5">
+                    <div class="text-noticia">
+                      <a *ngIf="loa==='loa:1'" class="title">{{noticia.titulo}}</a>
+                      <a *ngIf="loa==='loa:2'" href="{{noticia.url}}" target="_blank" class="title">{{noticia.titulo}}</a>
+                      <p>{{noticia.descripcion}}</p>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7"
+                       [ngClass]="{'bgImage': noticia.iamgen!='string'}"
+                       [style.background]="'url(' + noticia.iamgen + ')'"
+                       *ngIf="noticia.iamgen!='string'">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+        <a class="carousel-control-prev" href="#carouselNoticias" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselNoticias" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Siguiente</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

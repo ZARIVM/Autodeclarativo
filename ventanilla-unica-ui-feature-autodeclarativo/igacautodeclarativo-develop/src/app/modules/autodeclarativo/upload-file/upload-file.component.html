@@ -1,0 +1,41 @@
+<div class="form-row">
+    <div class="form-group col-md-4 noBotton">
+        <div class="custom-file" id="customFile">
+            <input #myInput type="file" class="custom-file-input" id="exampleInputFile" aria-describedby="fileHelp" (change)="seleccionarArchivo($event)" [class.is-invalid]="validInput" title="{{nombreArchivo}}">
+            <label class="custom-file-label" for="exampleInputFile">
+                {{(nombreArchivo=='' || nombreArchivo == null)? "Seleccionar Archivo" : nombreArchivo}}
+          </label>
+        </div>
+    </div>
+
+    <!-- <div class="form-group col-md-2 ancho " *ngIf="guardado"> </div> -->
+    <div class="form-group col-md-4 deleteFile" *ngIf="guardado">
+        <a (click)="eliminarArchivo()" class="pointer"> <i class="fas fa-trash-alt"></i></a>
+        <p class="text-limit pDelete" style="padding-left: 10px;">
+            Eliminar archivo cargado
+        </p>
+    </div>
+    <p class="text-danger mb-0" *ngIf="validInput">Campos requeridos
+    </p>
+
+</div>
+
+<div class="form-group col-md-12 mb-0" *ngIf="mensaje!==''">
+    <div class="attach-message">
+        <p class="text-limit">
+            <span class="d-block mb-1"><i class="far fa-times-circle mr-2 iconTime"></i> {{mensaje}}</span>
+
+        </p>
+    </div>
+</div>
+
+
+<div class="form-row " *ngIf="guardado">
+
+    <div class="form-group col-md-8 pt-10">
+        <i class="far fa-check-circle"></i>
+        <p class="text-limit pCheck" style="padding-left: 7px;">
+            El archivo {{nombreArchivo}} se ha cargado correctamente
+        </p>
+    </div>
+</div>

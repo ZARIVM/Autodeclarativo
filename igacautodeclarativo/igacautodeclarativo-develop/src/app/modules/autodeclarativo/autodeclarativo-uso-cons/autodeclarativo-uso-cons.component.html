@@ -1,0 +1,86 @@
+<div class="container p-0 my-4">
+    <div class="row">
+        <div class="col-9">
+            <igac-encabezado-seccion [title]="info.title" [description]="info.description">
+            </igac-encabezado-seccion>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <button (click)="crearContacto()" class="btn btn-outline-secondary" type="button" style="background-color: #3366CC; color:aliceblue;">
+                   Crear</button>
+        </div>
+    </div>
+    <div class="table-simple-headblue-govco scrollTable">
+        <div class="d-flex flex-row-reversebd-highlight" style="justify-content:
+            end;">
+            <div class="p-2 bd-highlight" style="text-align: right">
+                <select id="pageSize" class="form-control" style="border-color:
+                    #3366CC;" (change)="onSelectSize($event)">
+                    <option *ngFor="let p of pagesSizes" [selected]="p === 5">
+                        {{p}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <table class="w-100 table display table-responsive-sm
+            table-responsive-md">
+            <thead>
+                <tr>
+                    <th>Acciones</th>
+                    <th>Uso de la construcción</th>
+
+                    <th>Cantidad de Habitaciones</th>
+                    <th>Cantidad de Baños</th>
+                    <th>Cantidad de Locales</th>
+                    <th>Área de la construcción</th>
+                    <th>Año de la construcción</th>
+                    <th>Total, área construida</th>
+                    <!-- <th>Fotos</th> -->
+                    <th>Construcción no existente o demolida</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listaInfoConst | paginate: { itemsPerPage:
+                    pageSize, currentPage: cp };; let i= index" class="listMargin">
+                    <td style="width: 10%" (click)="editarContacto(item)">
+                        <i class="fas fa-edit" style="cursor: pointer"></i>
+                    </td>
+                    <td style="width: 12%">{{item.usoConstruccion}}</td>
+                    <td style="width: 12%">{{item.cantHabitaciones}}</td>
+                    <td style="width: 12%">{{item.cantBanios}}</td>
+                    <td style="width: 12%">{{item.cantLocales}}</td>
+                    <td style="width: 12%">{{item.areaConst}}</td>
+
+                    <td style="width: 12%">{{item.anioConst}}</td>
+                    <td style="width: 12%">{{item.totalAreaConst}}</td>
+                    <!-- <td style="width: 12%">{{item.fotos}}</td> -->
+                    <td style="width: 10%">
+                        <input type="checkbox" id="check{{i}}" [value]="item.estado" [checked]="item.estado">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="text-align: right">
+            <pagination-controls previousLabel="Anterior" nextLabel="Siguente" (pageChange)="cp= $event;"></pagination-controls>
+
+        </div>
+    </div>
+    <div class="row rox-fix">
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-2">
+                    <button type="button" class="btn btn-secondary" (click)="lastPage(3)">
+                        Volver
+                    </button>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-primary" (click)="nextPage(7)">Guardar</button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

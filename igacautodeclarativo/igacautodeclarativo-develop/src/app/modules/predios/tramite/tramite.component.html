@@ -1,0 +1,174 @@
+<div class="container p-0 my-4">
+  <div class="row">
+    <div class="col-9">
+      <igac-encabezado-seccion [title]="info.title"
+                               [description]="info.description"
+                               [description2]="info.description2">
+      </igac-encabezado-seccion>
+    </div>
+  </div>
+
+  <form [formGroup]="formGroup" (ngSubmit)="onSetProcedure()">
+    <div class="row">
+ 
+      <div class="form-group">
+        <div class="row">
+          <div class="form-group col-lg-8 mx-auto" style="margin-left: 210px !important;">
+            <label class="igac-label" for="tramite" style="color: #3366CC !important">Trámite <sup class="igac-required">*</sup></label>
+            <select id="tramite" class="form-control igac-input"
+                    formControlName="tramite" required (change)="onChange($event)">
+              <option [value]="null" disabled>Seleccionar...</option>
+              <option *ngFor="let option of tipoTramites" [value]="option.detalle">
+                {{option.detalle}}
+              </option>
+            </select>
+          </div>
+          <div class="form-group col-lg-8 mx-auto" *ngIf="showMutaciones" style="margin-left: 210px !important;">
+            <label class="igac-label" for="mutacion" style="color: #3366CC !important">Tipo de trámite <sup class="igac-required">*</sup></label>
+            <select id="mutacion" class="form-control igac-input" formControlName="mutacion" (change)="onChangeMutacion($event)">
+              <option [value]="null" disabled>Seleccionar...</option>
+              <option *ngFor="let option of tipoTramitesHijos" [value]="option.detalle">
+                {{option.detalle}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group" *ngIf="showAuto">
+      <div class="row">
+        <div class="form-group col-lg-8 mx-auto">
+          <label class="igac-label" for="mutacion" style="color: #3366CC !important">Por favor a continuación ingresa los valores solicitados del predio para la autoestimación:<sup class="igac-required">*</sup></label>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Área de Terreno</span>
+            <input formControlName="areaTerreno" type="number" placeholder="1.0" step="0.01" min="0" max="18" 
+                  class="form-control" placeholder="Ingresa el valor total del área de terreno en metros" 
+                  aria-label="Recipient's username" aria-describedby="button-addon2" style="border-color: #3366CC;">
+            <div style="margin-left: 20px;"></div>
+          </div>
+          <div class="input-group mb-3">
+           <span class="input-group-text" id="basic-addon1">Área de Construcción</span>
+            <input formControlName="areaConstruccion" type="number" placeholder="1.0" step="0.01" min="0" max="18"
+                  class="form-control" placeholder="Ingresa el valor total del área de las construcciónes en metros" 
+                  aria-label="Recipient's username" aria-describedby="button-addon2" style="border-color: #3366CC;">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Autoestimación Terreno</span>
+            <input formControlName="autoTerreno" type="number" placeholder="1.0" step="0.01" min="0" max="18"
+                  class="form-control" placeholder="Ingresa el costo total del terreno en pesos Colombianos" 
+                  aria-label="Recipient's username" aria-describedby="button-addon2" style="border-color: #3366CC;">
+            <div style="margin-left: 20px;"></div>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Autoestimación Edificaciones</span>
+            <input formControlName="autoConstruccion" type="number" placeholder="1.0" step="0.01" min="0" max="18"
+                  class="form-control" placeholder="Ingresa el costo total de las construcciones en pesos Colombianos" 
+                  aria-label="Recipient's username" aria-describedby="button-addon2" style="border-color: #3366CC;">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Dirección</span>
+            <input formControlName="direccion" type="text" class="form-control" placeholder="Ingresa la dirección principal del predio" aria-label="Recipient's username" aria-describedby="button-addon2" style="border-color: #3366CC;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group" *ngIf="showPredios">
+      <div class="row">
+        <div class="form-group col-lg-8 mx-auto">
+          <label class="igac-label" for="mutacion" style="color: #3366CC !important">Por favor a continuación busque los predios que requiere englobar:</label>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Departamento</span>
+            <input [value]="departamento" formControlName="" type="text" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="border-color: #3366CC;" readonly>
+            <div style="margin-left: 20px;"></div>
+            <span class="input-group-text" id="basic-addon1">Municipio</span>
+            <input [value]="municipio" formControlName="" type="text" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2" style="border-color: #3366CC;" readonly>
+          </div>
+          <label class="igac-label" for="mutacion" style="color: #3366CC !important">Ingresa el número de matricula inmobiliaria:</label>
+          <div class="input-group mb-3">
+            <input formControlName="matricula" type="text" class="form-control" placeholder="Ingresa el número de matricula inmobiliaria" aria-label="Recipient's username" aria-describedby="button-addon2" style="border-color: #3366CC;">
+            <button (click)="consultarPredial('matricula')" class="btn btn-outline-secondary" type="button" id="button-addon2" style="background-color: #3366CC; color:aliceblue;" [disabled]="!validarNumeroMatricula()">Agregar</button>
+          </div>
+          <label class="igac-label" for="mutacion" style="color: #3366CC !important">Ingresa el número predial:</label>
+          <div class="input-group mb-3">
+            <input formControlName="numeroPredial" type="text" class="form-control" placeholder="Ingresa el número predial" aria-label="Recipient's username" aria-describedby="button-addon2" style="border-color: #3366CC;">
+            <button (click)="consultarPredial('predial')" class="btn btn-outline-secondary" type="button" id="button-addon2" style="background-color: #3366CC; color:aliceblue;" [disabled]="!validarNumeroPredial()">Agregar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group" *ngIf="showPredios">
+      <div class="row">
+        <div class="form-group col-lg-8 mx-auto">
+          <label class="igac-label" for="mutacion" style="color: #3366CC !important">Los predios relacionados en la siguiente tabla serán los que se agregarán a su solicitud de englobe: <sup class="igac-required">*</sup></label>
+          <table class="table" style="border-color: #3366CC;">
+            <thead>
+              <tr>
+                <th scope="col" style="color: #3366CC;">Número predial</th>
+                <th scope="col" style="color: #3366CC;">Número matricula inmobiliaria</th>
+                <th scope="col" style="color: #3366CC;">Dirección</th>
+                <th scope="col" style="color: #3366CC;"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of numerosPredios">
+                <th scope="row">{{ item[0] }}</th>
+                <td>{{ item[1] }}</td>
+                <td>{{ item[2] }}</td>
+                <td><button type="button" class="btn btn-danger" (click)="eliminarPredio(item)">Eliminar</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group" *ngIf="showObservation">
+      <div class="row">
+        <div class="form-group col-lg-8 mx-auto">
+          <div class="form-floating">
+            <label style="color: #3366CC; font-family: 'Work Sans', sans-serif; font-size: 1rem; font-weight: normal" for="floatingTextarea2">Observaciones <span _ngcontent-cnj-c25="" class="text-danger font-weight-bolder"> *</span></label>
+            <textarea class="form-control" placeholder="Describa aquí su solicitud." id="floatingTextarea2" style="height: 100px; border-color: #3366CC;" formControlName="observaciones"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group" *ngIf="showDocumentation">
+      <div class="row" *ngFor="let doc of documentos">
+        <div class="form-group col-lg-8 mx-auto" *ngIf="doc.visible">
+          <igac-file-uploader [formulario]="documentGroup"
+                              [control]="doc.control"
+                              [required]="doc.required"
+                              [size]="doc.size"
+                              [title]="doc.title"
+                              [subtitle]="doc.label"
+                              [fileType]="doc.file">
+          </igac-file-uploader>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center">
+        <button type="button" class="btn btn-low mx-4"
+                (click)="onResetForm()" [disabled]="tramiteId">
+          Limpiar
+        </button>
+        <button type="submit" class="btn btn-round btn-high mx-4"
+                [disabled]="validTipoMutacion() || !validDocumentation() || !validObservaciones() || !validarNumeroIncluidos()">
+          Enviar
+        </button>
+      </div>
+    </div>
+  </form>
+
+</div>

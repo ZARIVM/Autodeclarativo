@@ -1,0 +1,10 @@
+
+  [
+    { "text": "Propietario", "value": "1" },
+    { "text": "Poseedor u ocupante", "value": "2" },
+    { "text": "Cónyuge o compañero(a)", "value": "3" },
+    { "text": "permanente", "value": "4" },
+    { "text": "Heredero", "value": "5" },
+    { "text": "Apoderado", "value": "6" }
+  ]
+

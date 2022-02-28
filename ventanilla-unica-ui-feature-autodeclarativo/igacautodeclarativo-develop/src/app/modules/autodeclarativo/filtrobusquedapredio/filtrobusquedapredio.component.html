@@ -1,0 +1,111 @@
+<div class="container p-0 my-4">
+    <div class="row">
+        <div class="col-9">
+            <igac-encabezado-seccion [title]="info.title" [description]="info.description">
+            </igac-encabezado-seccion>
+        </div>
+    </div>
+
+    <form [formGroup]="filtroPredioForm">
+        <div class="container-fluid bg-light">
+            <div class="container">
+
+                <div class="row fixRow">
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-12">
+                                <label class="igac-label" for="inputFolio" style="color: #3366CC !important">Folio de
+                                    matrícula inmobiliaria </label>
+                            </div>
+                            <div class="col-14">
+                                <input type="text" class="form-control"
+                                    placeholder="Círculo registral+número de registro" formControlName="folioMatricula" style="border-color: #3366CC; margin-left: 15px">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-12">
+                                <label class="igac-label" for="inputNumeroPredial"
+                                    style="color: #3366CC !important">Número predial</label>
+                            </div>
+                            <div class="col-14">
+                                <input type="text" class="form-control " formControlName="numeroPredial" style="border-color: #3366CC; margin-left: 15px">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-12">
+                                <label class="igac-label" for="inputCodigoNupre"
+                                    style="color: #3366CC !important">Código NUPRE</label>
+                            </div>
+                            <div class="col-14">
+                                <input type="text" class="form-control "  formControlName="codigoNupre" style="border-color: #3366CC;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row fixRow">
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-12">
+                                <label class="igac-label" for="selectDep" style="color: #3366CC !important">Departamento
+                                </label>
+                            </div>
+                            <div class="col-12">
+                                <select id="depa" class="form-control " formControlName="departamento"  style="border-color: #3366CC;"
+                                  (change)="onSelect($event)">
+                                  <option *ngFor="let dp of departamentos" [selected]="dp.id === filtroPredioForm.get('departamento').value" [value]="dp.id">
+                                    {{dp.departamento}}
+                                  </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-12">
+                                <label class="igac-label" for="selectMuni" style="color: #3366CC !important">Municipio
+                                </label>
+                            </div>
+                            <div class="col-12">
+                                <select class="form-control " id="muni" formControlName="municipio" style="border-color: #3366CC;">
+                                  <option *ngFor="let muni of municipios">
+                                    {{muni}}
+                                  </option>
+                                </select>
+              
+                              </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-12">
+                                <label class="igac-label" for="direccion" style="color: #3366CC !important">Dirección
+                                </label>
+                            </div>
+                            <div class="col-14">
+                                <input type="text" class="form-control "  formControlName="direccion" style="border-color: #3366CC;">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-12">
+                                <button (click)="buscarPredial()" class="btn btn-outline-secondary" type="button"
+                                    id="button-addon2" style="background-color: #3366CC; color:aliceblue;">
+                                    Buscar <i class="fa fa-search">&nbsp;</i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

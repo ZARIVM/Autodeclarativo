@@ -1,0 +1,97 @@
+<div class="container py-4">
+  <!--<div class="row">
+    <div class="col-12">
+      <h4>Trámites y servicios disponibles</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-xl-1"></div>
+    <div class="col-12 col-md-7 col-lg-6 col-xl-5">
+      <div class="iniciar-sesion">
+        <img src="assets/images/logo-vivi.png" width="125" height="90">
+        <h6>Para realizar trámites catastrales en línea</h6>
+        <button href="/" class="btn btn-round btn-middle">inicie sesión</button>
+      </div>
+    </div>
+    <div class="col-12 col-md-5 col-lg-5 col-xl-4">
+      <div class="registrarse">
+        <h6>Si aún no tiene cuenta activa</h6>
+        <button href="/" class="btn btn-round btn-middle">regístrese aquí</button>
+      </div>
+    </div>
+    <div class="col-12 col-lg-1 col-xl-2"></div>
+  </div>-->
+
+  <div *ngIf="loa!=='loa:1'">
+    <div class="row">
+      <div class="col-12">
+        <h4>Trámites y servicios disponibles</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-3 p-0 m-0">
+        <div class="servicios">
+          <a href="https://tramites.igac.gov.co/geltramitesyservicios/conversionNrosPrediales/convertirNrosPrediales.seam"
+             class="btn-gris" target="_blank">
+            <span class="govco-icon govco-icon-searchdoc"></span>
+            <br>Consulte aquí su NÚMERO PREDIAL NACIONAL
+          </a>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3 p-0 m-0">
+        <div class="servicios">
+          <a href="https://consultatramite-snc.igac.gov.co/#/validaciones"
+             class="btn-gris" target="_blank">
+            <span class="govco-icon govco-icon-happy-face-n"></span>
+            <br>Consulte el estado del trámite
+          </a>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3 p-0 m-0">
+        <div class="servicios">
+          <a href="predios" (click)="irPredios()" class="btn-gris">
+            <span class="govco-icon govco-icon-search-cn"></span>
+            <br>Consulte sus predios
+          </a>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3 p-0 m-0">
+        <div class="servicios" >
+          <a href="tramites" (click)="irTramites()" class="btn-gris">
+            <span class="govco-icon govco-icon-info"></span>
+            <br>Consulte sus trámites
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h4>Servicios en línea</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-1"></div>
+    <div class="col-12 col-md-5">
+      <div class="servicios-linea">
+        <h3>Trámites en línea</h3>
+        <a href="https://tramites.igac.gov.co/geltramitesyservicios/home.seam"
+           class="btn btn-round btn-high" target="_blank">
+          Generar Certificado Catastral
+        </a>
+      </div>
+    </div>
+    <div class="col-12 col-md-5">
+      <div class="servicios-linea">
+        <h3>Tienda virtual</h3>
+        <a href="https://tiendavirtual.igac.gov.co/"
+           target="_blank" class="btn btn-round btn-high">
+          Ir a tienda virtual
+        </a>
+      </div>
+    </div>
+    <div class="col-12 col-md-1"></div>
+  </div>
+
+</div>
