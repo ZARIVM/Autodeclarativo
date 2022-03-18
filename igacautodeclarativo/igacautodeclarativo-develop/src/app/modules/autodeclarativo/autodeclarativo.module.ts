@@ -1,6 +1,5 @@
 import { MatDialogModule } from '@angular/material/dialog';
 import { AutodeclarativoService } from './services/autodeclarativo.service';
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AutodeclarativoComponent } from '@autodeclarativo/autodeclarativo/autodeclarativo.component';
@@ -49,7 +48,6 @@ import { UploadFileComponent } from './upload-file/upload-file.component';
     SharedModule,
     NgxPaginationModule,
     FormsModule,
-    HttpClientModule,
     ReactiveFormsModule,
     MatDialogModule,
   ],

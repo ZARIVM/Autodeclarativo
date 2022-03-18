@@ -39,6 +39,10 @@ export class StorageService {
     return localStorage.getItem('name');
   }
 
+  setFullname(value :string) {
+    localStorage.setItem('name', value);
+  }  
+
   getEmail(): string {
     return localStorage.getItem('mail');
   }
@@ -90,13 +94,20 @@ export class StorageService {
   getFamilyName(): string {
     return localStorage.getItem('family_name');
   }
-
-  getSessionState(): string {
+  //[deprecated]
+  /* getSessionState(): string {
     return localStorage.getItem('session_state');
-  }
+  } */
+  /* setSessionState(value: string) {
+    localStorage.setItem('session_state', value);
+  } */
 
   getToken(): string {
     return localStorage.getItem('token');
+  }
+
+  setToken(value: string) {
+    localStorage.setItem('token',value);
   }
 
   clear(): void {

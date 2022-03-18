@@ -9,6 +9,10 @@ const routes: Routes = [
     loadChildren: () => import('@inicio/inicio.module').then(m => m.InicioModule)
   },
   {
+    path: 'login',
+    loadChildren: () => import('@session/session.module').then(m => m.SessionModule),
+  },  
+  {
     path: 'servicios',
     loadChildren: () => import('@servicios/servicios.module').then(m => m.ServiciosModule),
     data: {breadcrumblink: true, breadcrumb: 'Trámites y Servicios', show: true}
