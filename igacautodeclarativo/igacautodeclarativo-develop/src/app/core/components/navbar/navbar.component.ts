@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
+import { SessionService } from '@app/modules/session/session.service';
 import {Menu} from '@shared/constants/menu/menu';
 import {StorageService} from '@shared/services/storage/storage.service';
 import {KeycloakService} from 'keycloak-angular';
@@ -13,9 +15,21 @@ export class NavbarComponent implements OnInit {
   menu: any[];
   username: string;
   loa: string;
+  /**
+   * Enlace unidireccional del dataholder global y la vista
+   * @returns void
+   */
+   get isLogged() {
+    let isLogged = this.sessionService.isLoggedIn();
+    console.log("isLogged",isLogged)
+    return isLogged;
+  }
 
   constructor(
     private storageService: StorageService,
+    private sessionService: SessionService,
+    private router: Router,
+    //TODO:
     private keycloakService: KeycloakService
   ) {
   }
@@ -41,6 +55,9 @@ export class NavbarComponent implements OnInit {
   }
 
   onLogout(): void {
-    this.keycloakService.logout();
+    //TODO: 
+    //this.keycloakService.logout();
+    this.sessionService.logoutObservable();
+    this.router.navigate(["/"]);
   }
 }

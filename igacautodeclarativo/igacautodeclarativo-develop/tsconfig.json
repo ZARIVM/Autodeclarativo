@@ -31,6 +31,9 @@
       "@helpers/*": [
         "./src/app/helpers/*"
       ],
+      "@session/*": [
+        "./src/app/modules/session/*"
+      ],      
       "@inicio/*": [
         "./src/app/modules/inicio/*"
       ],

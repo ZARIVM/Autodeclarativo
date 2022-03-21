@@ -1,9 +1,0 @@
-[
-    { "text": "Habitacional", "value": "A" },
-    { "text": "Industrial", "value": "B" },
-    { "text": "Comercial", "value": "C" },
-    { "text": "Agropecuario", "value": "D" },
-    { "text": "Minero", "value": "E" },
-    { "text": "Cultural", "value": "F" }
-
-]

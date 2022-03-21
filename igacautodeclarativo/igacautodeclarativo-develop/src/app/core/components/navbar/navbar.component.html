@@ -6,7 +6,8 @@
           <a [routerLink]="[item.url]" class="nav-link p-2 font-weight-bold">{{item.label}}</a>
         </li>
       </ul>
-      <ul class="navbar-nav">
+      
+      <ul class="navbar-nav" *ngIf="isLogged; else elseBlock">
         <li class="dropdown">
           <a class="nav-link py-0 px-3 dropdown-toggle align-middle"
              data-toggle="dropdown" role="button" aria-expanded="false">
@@ -20,6 +21,9 @@
           </ul>
         </li>
       </ul>
+      <ng-template #elseBlock>
+        <button  [routerLink]="'login'" class="btn btn-round btn-high">Iniciar sesión</button>
+      </ng-template>
     </nav>
   </div>
 </div>
